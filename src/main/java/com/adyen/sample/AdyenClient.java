@@ -18,6 +18,8 @@ public class AdyenClient {
     config.setPassword(password);
     config.setEnvironment(Environment.valueOf(environment));
     Client client = new Client(config);
+    // this line needed to initialize endpoints based on env
+    client.setEnvironment(config.getEnvironment(), null);
     return client;
   }
 
